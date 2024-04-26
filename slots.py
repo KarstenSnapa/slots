@@ -2,13 +2,14 @@ import tkinter as tk
 import random
 import pymysql.cursors
 
-username = "user1"
-score = 100
+username = "No user"
+score = 1
+password = 0
 
 # Establish a connection to your MySQL database
 try: connection = pymysql.connect(host='172.20.128.77',
                             user='karsten',
-                            password='123Akademiet',
+                            password='Akademiet123',
                             database='users',
                             charset='utf8mb4',
                             cursorclass=pymysql.cursors.DictCursor)
@@ -96,7 +97,22 @@ def fill_square(row, col):
         canvas.create_rectangle(x0, y0, x1, y1, outline="black", fill="black") # Fill the square to the right
     
 
+def set_username():
+    global username
+    username = username_entry.get()
+    username_label.config(text=f"Username: {username}")
+    print(username)
 
+username_entry = tk.Entry(root, width=20)
+username_entry.place(relx=0.5, rely=0.05, anchor="n")
+
+# Button to set username
+set_username_button = tk.Button(root, text="Set Username", command=set_username)
+set_username_button.place(relx=0.5, rely=0.1, anchor="n")
+
+# Label to display selected username
+username_label = tk.Label(root, text=f"Username: {username}", bg="white")
+username_label.place(x=10, rely=0.15, anchor="n")
 
 
 button = tk.Button(root, text="Drop Ball", command=drop_ball)
