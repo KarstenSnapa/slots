@@ -12,6 +12,7 @@ MySQL database som tracker brukernavn og score (passord er ikke ferdig)
 Opprette en connection mellom python og MySQL og la deg sende data til og lese i databasen
 et input felt som tracker brukernavnet ditt
 knappen og spillet funker ikke men scoren blir oppdatert og sendt til databasen
+Gjort så hvis du ikke har en connection til MySQL krasjer ikke programmet
 
 
 
